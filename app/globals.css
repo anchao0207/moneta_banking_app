@@ -79,7 +79,7 @@
 
 * {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
   box-sizing: border-box;
 }
 
@@ -105,7 +105,7 @@
   }
 
   .home-header {
-    @apply flex flex-col justify-between gap-8;
+    @apply flex flex-col justify-between gap-8 p-10;
   }
 
   .total-balance {
