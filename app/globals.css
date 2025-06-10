@@ -41,9 +41,6 @@
   --color-gray-600: #475467;
   --color-gray-700: #344054;
   --color-gray-900: #101828;
-  --color-bank-gradient: linear-gradient(90deg, #0179fe 0%, #4893ff 100%);
-  --color-gradient-mesh: url("/icons/gradient-mesh.svg");
-  --color-bank-green-gradient: linear-gradient(90deg, #01797a 0%, #489399 100%);
   --shadow-form: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   --shadow-chart: 0px 1px 3px 0px rgba(16, 24, 40, 0.1),
     0px 1px 2px 0px rgba(16, 24, 40, 0.06);
@@ -78,7 +75,7 @@
 }
 
 * {
-  margin: 0;
+  /* margin: 0; */
   /* padding: 0; */
   box-sizing: border-box;
 }
@@ -440,4 +437,16 @@
   &::-webkit-scrollbar-thumb:hover {
     background: #7878a3;
   }
+}
+
+@utility bg-bank-gradient {
+  background-image: linear-gradient(90deg, #0179fe 0%, #4893ff 100%);
+}
+
+@utility bg-bank-green-gradient {
+  background-image: linear-gradient(90deg, #01797a 0%, #489399 100%);
+}
+
+@utility bg-gradient-mesh {
+  background-image: url("/icons/gradient-mesh.svg");
 }
