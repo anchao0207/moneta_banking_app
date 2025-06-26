@@ -12,7 +12,7 @@ import CustomInput from "./CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { getLoggedInUser, signIn, signUp } from "@/lib/actions/user.actions";
+import { signIn, signUp } from "@/lib/actions/user.actions";
 import PlaidLink from "./PlaidLink";
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -27,6 +27,14 @@ const AuthForm = ({ type }: { type: string }) => {
     defaultValues: {
       email: "",
       password: "",
+      firstName: "",
+      lastName: "",
+      address1: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      dateOfBirth: "",
+      ssn: "",
     },
   });
 
@@ -34,20 +42,21 @@ const AuthForm = ({ type }: { type: string }) => {
     setIsLoading(true);
     try {
       //   Sign up with Appwrite & create plaid token
-      const userData = {
-        firstName: data.firstName!,
-        lastName: data.lastName!,
-        address1: data.address1!,
-        city: data.city!,
-        state: data.state!,
-        postalCode: data.postalCode!,
-        dateOfBirth: data.dateOfBirth!,
-        ssn: data.ssn!,
-        email: data.email,
-        password: data.password,
-      };
 
       if (type === "sign-up") {
+        const userData = {
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          city: data.city!,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
+          ssn: data.ssn!,
+          email: data.email,
+          password: data.password,
+        };
+
         const newUser = await signUp(userData);
 
         setUser(newUser);
@@ -95,9 +104,6 @@ const AuthForm = ({ type }: { type: string }) => {
           </h1>
         </div>
       </header>
-      <div className="flex flex-col gap-4">
-        <PlaidLink user={user} variant="primary" />
-      </div>
       {user ? (
         <div className="flex flex-col gap-4">
           <PlaidLink user={user} variant="primary" />
@@ -119,7 +125,7 @@ const AuthForm = ({ type }: { type: string }) => {
                       control={form.control}
                       name="lastName"
                       label="Last Name"
-                      placeholder="Enter your last name"
+                      placeholder="Enter your first name"
                     />
                   </div>
                   <CustomInput
@@ -139,13 +145,13 @@ const AuthForm = ({ type }: { type: string }) => {
                       control={form.control}
                       name="state"
                       label="State"
-                      placeholder="ex: NY"
+                      placeholder="Example: NY"
                     />
                     <CustomInput
                       control={form.control}
                       name="postalCode"
                       label="Postal Code"
-                      placeholder="ex: 10001"
+                      placeholder="Example: 11101"
                     />
                   </div>
                   <div className="flex gap-4">
@@ -158,8 +164,8 @@ const AuthForm = ({ type }: { type: string }) => {
                     <CustomInput
                       control={form.control}
                       name="ssn"
-                      label="Social Security Number"
-                      placeholder="ex: 123-45-6789"
+                      label="SSN"
+                      placeholder="Example: 1234"
                     />
                   </div>
                 </>
@@ -180,7 +186,7 @@ const AuthForm = ({ type }: { type: string }) => {
               />
 
               <div className="flex flex-col gap-4">
-                <Button className="form-btn" type="submit" disabled={isLoading}>
+                <Button type="submit" disabled={isLoading} className="form-btn">
                   {isLoading ? (
                     <>
                       <Loader2 size={20} className="animate-spin" /> &nbsp;
@@ -206,7 +212,7 @@ const AuthForm = ({ type }: { type: string }) => {
               href={type === "sign-in" ? "/sign-up" : "/sign-in"}
               className="form-link"
             >
-              {type === "sign-in" ? "Sign Up" : "Sign In"}
+              {type === "sign-in" ? "Sign up" : "Sign in"}
             </Link>
           </footer>
         </>

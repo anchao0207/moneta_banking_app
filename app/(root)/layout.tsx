@@ -16,7 +16,7 @@ export default async function RootLayout({
   return (
     <main className="flex h-screen w-full font-inter">
       <Sidebar user={loggedIn} />
-      <div className="flex size-full flex-col">
+      <div className="flex size-full flex-col overflow-y-hidden">
         <div className="root-layout">
           <Image src="/icons/logo.svg" alt="logo" width={30} height={30} />
           <div>

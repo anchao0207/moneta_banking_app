@@ -1,10 +1,12 @@
 import React from "react";
 import { FormControl, FormField, FormLabel, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
+
 import { Control, FieldPath } from "react-hook-form";
-import z from "zod";
+import { z } from "zod";
 import { authFormSchema } from "@/lib/utils";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formSchema = authFormSchema("sign-up");
 
 interface CustomInput {
@@ -13,6 +15,7 @@ interface CustomInput {
   label: string;
   placeholder: string;
 }
+
 const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
   return (
     <FormField

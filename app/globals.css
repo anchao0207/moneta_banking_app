@@ -86,7 +86,7 @@
   }
 
   .recent-transactions-tablist {
-    @apply custom-scrollbar mb-8 flex w-full flex-nowrap;
+    @apply custom-scrollbar mb-8 !flex !w-full flex-nowrap;
   }
 
   .input-class {
@@ -98,7 +98,7 @@
   }
 
   .home-content {
-    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
+    @apply no-scrollbar !flex w-full !flex-1 !flex-col gap-8 !px-5 sm:!px-8 !py-7 lg:!py-12 xl:max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {
@@ -234,15 +234,15 @@
   }
 
   .plaidlink-primary {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply !text-16 !rounded-lg !border !border-bankGradient !bg-bank-gradient font-semibold text-white shadow-form;
   }
 
   .plaidlink-ghost {
-    @apply flex cursor-pointer items-center justify-center gap-3 rounded-lg px-3 py-7 hover:bg-white lg:justify-start;
+    @apply flex cursor-pointer items-center justify-center !gap-3 rounded-lg px-3 py-7 hover:bg-white lg:justify-start;
   }
 
   .plaidlink-default {
-    @apply flex !justify-start cursor-pointer gap-3 rounded-lg !bg-transparent flex-row;
+    @apply !flex !justify-start cursor-pointer !gap-3 !rounded-lg !bg-transparent !flex-row !shadow-none;
   }
 
   .auth-asset {
@@ -338,7 +338,7 @@
   }
 
   .sidebar-link {
-    @apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 rounded-lg justify-center xl:justify-start;
+    @apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 !rounded-lg justify-center xl:justify-start;
   }
 
   .sidebar-label {
